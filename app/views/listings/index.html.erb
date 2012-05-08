@@ -1,66 +1,13 @@
-<%- model_class = Listing.new.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
-      <th><%= model_class.human_attribute_name(:city) %></th>
-      <th><%= model_class.human_attribute_name(:zip) %></th>
-      <th><%= model_class.human_attribute_name(:bathrooms) %></th>
-      <th><%= model_class.human_attribute_name(:bedrooms) %></th>
-      <th><%= model_class.human_attribute_name(:rent) %></th>
-      <th><%= model_class.human_attribute_name(:smoking) %></th>
-      <th><%= model_class.human_attribute_name(:heat) %></th>
-      <th><%= model_class.human_attribute_name(:electric) %></th>
-      <th><%= model_class.human_attribute_name(:flags) %></th>
-      <th><%= model_class.human_attribute_name(:gas) %></th>
-      <th><%= model_class.human_attribute_name(:length) %></th>
-      <th><%= model_class.human_attribute_name(:furnished) %></th>
-      <th><%= model_class.human_attribute_name(:laundry) %></th>
-      <th><%= model_class.human_attribute_name(:parking) %></th>
-      <th><%= model_class.human_attribute_name(:pets) %></th>
-      <th><%= model_class.human_attribute_name(:ltype) %></th>
-      <th><%= model_class.human_attribute_name(:aptnum) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @listings.each do |listing| %>
-      <tr>
-        <td><%= link_to listing.id, listing_path(listing) %></td>
-        <td><%= listing.address %></td>
-        <td><%= listing.city %></td>
-        <td><%= listing.zip %></td>
-        <td><%= listing.bathrooms %></td>
-        <td><%= listing.bedrooms %></td>
-        <td><%= listing.rent %></td>
-        <td><%= listing.smoking %></td>
-        <td><%= listing.heat %></td>
-        <td><%= listing.electric %></td>
-        <td><%= listing.flags %></td>
-        <td><%= listing.gas %></td>
-        <td><%= listing.length %></td>
-        <td><%= listing.furnished %></td>
-        <td><%= listing.laundry %></td>
-        <td><%= listing.parking %></td>
-        <td><%= listing.pets %></td>
-        <td><%= listing.ltype %></td>
-        <td><%= listing.aptnum %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_listing_path(listing), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      listing_path(listing),
-                      :method => :delete,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="divider"></div>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_listing_path,
-            :class => 'btn btn-primary' %>
+<!-- Search Panel -->
+<%= render 'pages/search_panel' %>
+<!-- End Search Panel -->
+
+<div class="divider"></div>
+
+<!-- Content -->
+<%= render 'results' %>
+<!-- End Content -->
+
+

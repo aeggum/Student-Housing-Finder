@@ -2,7 +2,10 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @title = "Search Results"
+    #@listings = Listing.all
+    @search = Listing.search(params[:search])
+    @listings = @search.all
 
     respond_to do |format|
       format.html # index.html.erb

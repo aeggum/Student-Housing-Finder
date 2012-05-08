@@ -1,0 +1,47 @@
+<div class="span8">
+		<div class="hero-unit">
+        	<h1>Search Results</h1>
+	        <hr style="border: 1px solid black;"/>
+    	    <h3>Click on a result to take you to the listing page. The following results matching your search criteria were found:</h3>
+        	<br />
+        
+	        <table id="Search_Results_Table">   
+
+
+	  		<!-- pagination stuff went here --> 
+
+			<% @listings.each do |listing| %>
+
+			<% identifier = "Table_Element_" + listing.id.to_s() %>
+			<tr onclick="setSelectedTableElement(<%= listing.id %>)" id=<%= identifier%> class="TableElementGeneral">
+    			<td class="span8">
+    				<br />
+    					<!-- image stuff went here --> 
+    				<div>
+    					<p>
+    						<!-- landlord stuff went here -->
+    					</p>
+    				</div>
+    				<p>
+    					<% if listing.ltype %>
+    						<%= listing.address %>
+	    				<% else %>
+    						<%= listing.aptnum %>
+    						<%= listing.building_name %>
+    					<% end %>
+    				</p>
+    				<div>
+	    				<p class="EntryZip">Zip Code: <%= listing.zip %></p>
+    					<p class="EntryBedBath">Bedrooms: <%= listing.bedrooms %>  |  Bathrooms: <%= listing.bathrooms %> </p>    			
+    				</div>
+    				<br />
+    				<hr>
+    			</td>
+  			</tr>
+			<% end %>
+
+		</table>
+		<!-- will_paginate stuff went here  -->
+
+	</div>
+	</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120508073726) do
+ActiveRecord::Schema.define(:version => 20120508222338) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(:version => 20120508073726) do
     t.boolean  "smoking"
     t.boolean  "heat"
     t.boolean  "electric"
-    t.boolean  "flags"
+    t.integer  "flags"
     t.boolean  "gas"
-    t.boolean  "garbagecollction"
+    t.boolean  "garbagecollection"
     t.integer  "length"
     t.boolean  "furnished"
     t.boolean  "laundry"
@@ -55,9 +55,18 @@ ActiveRecord::Schema.define(:version => 20120508073726) do
     t.integer  "landlord_id"
     t.string   "image"
     t.integer  "region"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.boolean  "house"
+    t.boolean  "apt"
+    t.boolean  "flat"
+    t.boolean  "coop"
   end
+
+  add_index "listings", ["address"], :name => "index_listings_on_address"
+  add_index "listings", ["building_name"], :name => "index_listings_on_building_name"
+  add_index "listings", ["landlord_id"], :name => "index_listings_on_landlord_id"
+  add_index "listings", ["rent"], :name => "index_listings_on_rent"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

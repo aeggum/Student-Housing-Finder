@@ -7,5 +7,6 @@ class PagesController < ApplicationController
 
   def about
     @title = "About"
+    @search = Listing.search(params[:all])
   end
 end

@@ -1,0 +1,164 @@
+<%= form_for @listing, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :city, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :city, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :state, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :state, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :zip, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :zip, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bathrooms, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bathrooms, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bedrooms, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :bedrooms, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :rent, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :rent, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :squarefeet, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :squarefeet, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :smoking, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :smoking, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :heat, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :heat, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :electric, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :electric, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :flags, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :flags, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :gas, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :gas, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :garbagecollction, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :garbagecollction, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :length, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :length, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :furnished, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :furnished, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :laundry, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :laundry, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :parking, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :parking, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pets, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :pets, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ltype, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :ltype, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :user_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :user_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :aptnum, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :aptnum, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :building_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :building_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :landlord_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :landlord_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :image, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :image, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :region, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :region, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                listings_path, :class => 'btn' %>
+  </div>
+<% end %>

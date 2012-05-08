@@ -33,15 +33,15 @@
               		<div class="well">
             			<p><b>Bedrooms</b></p>
 						<%= f.label  :bedrooms_gte, "Min" %>
-						<%= f.select :bedrooms_gte, 1..20 %>
+						<%= f.select :bedrooms_gte, Listing::ROOMS %>
 						<%= f.label  :bedrooms_lte, "Max" %>
-						<%= f.select :bedrooms_lte, 1..20 %> 
+						<%= f.select :bedrooms_lte, Listing::ROOMS %> 
 						<hr style="border: 1px solid lightGrey" />
               			<p><b>Bathrooms</b></p>
 						<%= f.label  :bathrooms_gte, "Min" %>
-						<%= f.select :bathrooms_gte, 1..5 %>
+						<%= f.select :bathrooms_gte, Listing::BATHS %>
 						<%= f.label  :bathrooms_lte, "Max" %>
-						<%= f.select :bathrooms_lte, 1..5 %>
+						<%= f.select :bathrooms_lte, Listing::BATHS %>
 						<hr style="border: 1px solid lightGrey" />
               			<label class="text">
               				<b>Square-Footage</b>

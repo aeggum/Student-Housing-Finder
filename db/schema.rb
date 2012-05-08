@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20120508222338) do
     t.boolean  "apt"
     t.boolean  "flat"
     t.boolean  "coop"
+    t.boolean  "cats"
+    t.boolean  "dogs"
   end
 
   add_index "listings", ["address"], :name => "index_listings_on_address"

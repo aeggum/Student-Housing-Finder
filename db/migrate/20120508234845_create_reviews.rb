@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration
       t.float :rating
       t.integer :helpfulness
       t.integer :flags
-      t.integer :list_id
+      t.integer :listing_id
       t.integer :user_id
 
       t.timestamps

@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(:version => 20120508235454) do
     t.float    "rating"
     t.integer  "helpfulness"
     t.integer  "flags"
-    t.integer  "list_id"
+    t.integer  "listing_id"
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

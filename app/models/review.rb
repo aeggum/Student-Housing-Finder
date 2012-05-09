@@ -7,13 +7,13 @@ class Review < ActiveRecord::Base
   # Line below was throwing an error. Commented it out for now.
   #profanity_filter! :review_body
 
-  validates :review_body,        :presence => true
+  validates :body,        :presence => true
   validates :rating,             :presence => true
   validates :list_id,            :presence => true
   validates :user_id,            :presence => true
 
   def default_values
-    self.flag ||= 0
+    self.flags ||= 0
     self.helpfulness ||= 0
   end
 

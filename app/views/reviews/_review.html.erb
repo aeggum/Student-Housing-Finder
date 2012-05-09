@@ -1,6 +1,6 @@
 <tr>
   <td class="review">
-    <span class="content"><%= review.review_body %></span>
+    <span class="content"><%= review.body %></span>
     <br />
     Rating (out of 5): <span class="rating"><%= review.rating.to_i %></span>
     <br />
@@ -8,7 +8,7 @@
       Posted <%= time_ago_in_words(review.created_at) %> ago.
     </span>
     <span class="name">
-      By <%= get_user(review.user_id).name %>.
+      By <%= get_user(review.user_id).email %>.
     </span>
     <span class="helpfulness_button">
     	Helpful button goes here.
@@ -18,18 +18,11 @@
     </span>
 
  	<% if signed_in? && (current_user.id == review.user_id) %>
-
-		<% if :controller == 'lists' %>
-	 		<%= link_to "delete", list_review_path(review.list_id, review.id),
+	 		<%= link_to "delete", listing_review_path(review.listing_id, review.id),
 	 							:method => :delete,
 	                            :confirm => "Are you sure?",
-	                            :title => "Delete '#{review.review_body}'" %>
-	    <% else %>
-	    	<%= link_to "delete", user_review_path(review.user_id, review.id),
-	 							:method => :delete,
-	                            :confirm => "Are you sure?",
-	                            :title => "Delete '#{review.review_body}'" %>
-	    <% end %>
+	                            :title => "Delete '#{review.body}'" %>
+	    
     <% end %>
   </td>
 </tr>

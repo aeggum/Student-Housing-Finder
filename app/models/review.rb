@@ -1,6 +1,6 @@
 class Review < ActiveRecord::Base
-  attr_accessible :review_body, :flag, :helpfulness, :rating
-  belongs_to :list
+  attr_accessible :body, :flag, :helpfulness, :rating, :user_id
+  belongs_to :listing
   belongs_to :user
   after_initialize :default_values
 
@@ -9,7 +9,7 @@ class Review < ActiveRecord::Base
 
   validates :body,        :presence => true
   validates :rating,             :presence => true
-  validates :list_id,            :presence => true
+  validates :listing_id,            :presence => true
   validates :user_id,            :presence => true
 
   def default_values

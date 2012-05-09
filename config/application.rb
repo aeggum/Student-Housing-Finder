@@ -52,7 +52,8 @@ module StudentHousingFinder
 
     # Enable the asset pipeline
     config.assets.enabled = true
-
+    config.gem 'rack-recaptcha', :lib => 'rack/recaptcha'
+    config.middleware.use Rack::Recaptcha, :public_key => '6Ld2Ys8SAAAAAODPB0epiF-5vsmRipJl4xvaCIbu', :private_key => '6Ld2Ys8SAAAAAOxRk-aYVuuN35lottSEU2MkRq7s'
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end

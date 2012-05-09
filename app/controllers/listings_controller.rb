@@ -46,11 +46,10 @@ class ListingsController < ApplicationController
     @listing = Listing.new(params[:listing])
 
     respond_to do |format|
-      if @listing.save
+      if recaptcha_valid? && @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.json { render json: @listing, status: :created, location: @listing }
       else
-        puts @listing.errors.to_a
         format.html { render action: "new" }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
@@ -63,7 +62,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
 
     respond_to do |format|
-      if @listing.update_attributes(params[:listing])
+      if recaptcha_valid? && @listing.update_attributes(params[:listing])
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
         format.json { head :no_content }
       else

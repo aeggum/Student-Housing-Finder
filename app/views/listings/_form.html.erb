@@ -19,21 +19,12 @@
             					<label class="control-label">Residence Type:</label>
             					<div class="controls">
             						<% if ((action.eql? "edit") || (action.eql? "update")) %>
-            							<% if (signed_in? && current_user.admin?) %>
-              								<label class="radio">
-              									<%= f.radio_button :ltype, true %>House
-              								</label>
-              								<label class="radio">
-                								<%= f.radio_button :ltype, false %>Apartment
-              								</label>
-              							<% else %>
               								<label class="radio">
               									<%= f.radio_button :ltype, true, :disabled => true %>House
               								</label>
               								<label class="radio">
                 								<%= f.radio_button :ltype, false, :disabled => true %>Apartment
               								</label>
-              							<% end %>
               						<% elsif ((action.eql? "new") || (action.eql? "create")) %>
               							<label class="radio">
               								<%= f.radio_button :ltype, true %>House
@@ -48,21 +39,12 @@
             					<label class="control-label">Location:</label>
             					<div class="controls docs-input-sizes">
             						<% if ((action.eql? "edit") || (action.eql? "update")) %>
-            							<% if (signed_in? && current_user.admin?) %>
-            								<p><%= f.text_field :address, :class => "input-medium", :placeholder => "Address" %></p>
-        	    							<p><%= f.text_field :building_name, :class => "input-medium", :placeholder => "Building Name" %></p>
-            								<p><%= f.text_field :aptnum, :class => "input-small", :placeholder => "Apartment #" %></p>
-              								<p><%= f.text_field :city, :class => "input-small disabled", :placeholder => "Madison", :disabled => true %></p>
-              								<p><%= f.text_field :state, :class => "input-small disabled", :placeholder => "WI", :disabled => true %></p>
-              								<p><%= f.text_field :zip, :class => "input-mini", :placeholder => "Zip Code" %></p>
-              							<% else %>
               								<p><%= f.text_field :address, :class => "input-medium", :placeholder => "Address", :disabled => true %></p>
         	    							<p><%= f.text_field :building_name, :class => "input-medium", :placeholder => "Building Name", :disabled => true %></p>
             								<p><%= f.text_field :aptnum, :class => "input-small", :placeholder => "Apartment #", :disabled => true %></p>
               								<p><%= f.text_field :city, :class => "input-small disabled", :placeholder => "Madison", :disabled => true %></p>
               								<p><%= f.text_field :state, :class => "input-small disabled", :placeholder => "WI", :disabled => true %></p>
               								<p><%= f.text_field :zip, :class => "input-mini", :placeholder => "Zip Code", :disabled => true %></p>
-            							<% end %>
             						<% elsif ((action.eql? "create") || (action.eql? "new")) %>
 	            						<p><%= f.text_field :address, :class => "input-medium", :placeholder => "Address" %></p>
         	    						<p><%= f.text_field :building_name, :class => "input-medium", :placeholder => "Building Name" %></p>
@@ -93,15 +75,9 @@
           					<div class="control-group">
           						<label class="control-label">Bedrooms:</label>
           						<% if ((action.eql? "edit") || (action.eql? "update" )) %>
-          							<% if (signed_in? && current_user.admin?) %>
-          								<div class="controls">
-          									<%= f.select :bedrooms, Listing::ROOMS %>
-              							</div>
-              						<% else %>
               							<div class="controls">
               								<%= f.text_field :bedrooms, :disabled => true %>
               							</div>
-              						<% end %>
               					<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
               						<div class="controls">
           								<%= f.select :bedrooms, Listing::ROOMS %>
@@ -111,15 +87,9 @@
               				<div class="control-group">
           						<label class="control-label">Bathrooms:</label>
           						<% if ((action.eql? "edit") || (action.eql? "update" )) %>
-          							<% if (signed_in? && current_user.admin?) %>
-          								<div class="controls">
-          									<%= f.select :bathrooms, Listing::BATHS %>
-              							</div>
-              						<% else %>
               							<div class="controls">
           									<%= f.text_field :bathrooms, :disabled => true %>
               							</div>
-              						<% end %>
               					<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
               						<div class="controls">
           								<%= f.select :bathrooms, Listing::BATHS %>
@@ -223,12 +193,12 @@
 		</div><!--./tab-pane -->
 		</div><!--./tab-content -->
 		<br />
-		RECAPTCHA WENT HERE
+		<%= raw recaptcha_tag(:challenge) %>
 		<br />
 		<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
     		<div class="btn-group">
     			<%= f.submit("Update Listing", :class => "btn-large btn-inverse")%>
-    			<%= form_tag increment_flag(@list), :action => "edit", :method => "post" do %>
+    			<%= form_tag increment_flag(@listing), :action => "edit", :method => "post" do %>
 					<%= submit_tag("Flag", :class => "btn-large btn-danger") %>
 				<% end %>
 			</div>

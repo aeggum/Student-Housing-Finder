@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  include Rack::Recaptcha::Helpers
   
   def authenticate_admin_user!
     authenticate_user!

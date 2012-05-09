@@ -2,6 +2,7 @@ class Listing < ActiveRecord::Base
   scope :apartments,  where(:ltype => false)
   scope :houses,      where(:ltype => true)
   
+  #has_and_belongs_to_many :reviews
   has_many :reviews,          :dependent => :delete_all
   belongs_to :landlord
   accepts_nested_attributes_for :reviews
@@ -22,7 +23,7 @@ class Listing < ActiveRecord::Base
                   :gas,         :garbagecollection, :ltype, 
                   :length,      :furnished,         :laundry, 
                   :aptnum,      :building_name,     :landlord_id,
-                  :image,       :remote_image_url
+                  :image,       :remote_image_url,  :house,:apt,:flat,:coop,:dogs,:cats
                   
   attr_accessor   :landlord_name
   
@@ -33,7 +34,8 @@ class Listing < ActiveRecord::Base
                   :heat,        :electric,          :flags, 
                   :gas,         :garbagecollection, :ltype,
                   :length,      :furnished,         :laundry, 
-                  :aptnum,      :building_name
+                  :aptnum,      :building_name,     :created_at,
+                  :updated_at,  :image
   
   validates :address,     :presence => true,
                           :length   => { :maximum => 50 }, 

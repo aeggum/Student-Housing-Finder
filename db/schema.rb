@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(:version => 20120508235454) do
     t.string   "aptnum"
     t.string   "building_name"
     t.integer  "landlord_id"
-    t.string   "image"
     t.integer  "region"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
@@ -78,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20120508235454) do
     t.boolean  "coop"
     t.boolean  "cats"
     t.boolean  "dogs"
+    t.string   "image"
   end
 
   add_index "listings", ["address"], :name => "index_listings_on_address"

@@ -8,5 +8,6 @@ ActiveAdmin.register User do
     column :last_sign_in_ip
     column :created_at
     column :admin
+    default_actions
   end
 end

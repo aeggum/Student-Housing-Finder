@@ -16,6 +16,15 @@ ActiveAdmin::Dashboards.build do
     end
     strong { link_to "View All Listings", admin_listings_path }
   end
+ 
+  #looking into how to get this onto a new line, etc..   
+  section "Recent Reviews" do
+    table_for Review.order("created_at desc").limit(5) do
+      column :body
+      column :rating
+    end
+    end
+  end
   
   # == Simple Dashboard Section
   # Here is an example of a simple dashboard section

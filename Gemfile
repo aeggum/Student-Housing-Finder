@@ -23,7 +23,7 @@ group :test do
 end
 
 
-gem "meta_search"     
+gem "meta_search"
 #gem 'will_paginate'  
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
 gem 'simplecov', :require => false, :group => :test

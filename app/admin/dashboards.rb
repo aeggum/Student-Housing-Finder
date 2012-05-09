@@ -23,7 +23,6 @@ ActiveAdmin::Dashboards.build do
       column :body
       column :rating
     end
-    end
   end
   
   # == Simple Dashboard Section

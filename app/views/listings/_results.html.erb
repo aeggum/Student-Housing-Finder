@@ -19,7 +19,13 @@
     					<!-- image stuff went here --> 
     				<div>
     					<p>
-    						<!-- landlord stuff went here -->
+    						<b>Landlord Info</b>:
+	    					<% if !listing.landlord_id.nil? %> 
+    							<% landlord = get_landlord(listing.landlord_id) %>
+    							<%= landlord.name %>
+    						<% else %>
+    							Not available yet.
+    						<% end %>
     					</p>
     				</div>
     				<p>

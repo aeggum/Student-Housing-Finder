@@ -2,9 +2,9 @@ class Listing < ActiveRecord::Base
   scope :apartments,  where(:ltype => false)
   scope :houses,      where(:ltype => true)
   
-  #has_many :reviews,          :dependent => :delete_all
-  #belongs_to :landlord
-  #accepts_nested_attributes_for :reviews
+  has_many :reviews,          :dependent => :delete_all
+  belongs_to :landlord
+  accepts_nested_attributes_for :reviews
   after_initialize :default_values
   #mount_uploader :image, ImageUploader
   
@@ -75,9 +75,9 @@ class Listing < ActiveRecord::Base
   #validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
                           
   with_options :if => :apartment? do |apartment|
-    apartment.validates :aptnum,  :presence => true, 
-                                  :numericality => {:gt => 0},
-                                  :format => {:with => /^\d+??(?:\.\d{0,2})?$/ }
+    apartment.validates :aptnum,  :presence => true  #want to change the validation but oh well 
+                                  #:numericality => {:gt => 0},
+                                  #:format => {:with => /^\d+??(?:\.\d{0,2})?$/ }
     
     apartment.validates :building_name, 
                                   :presence => true

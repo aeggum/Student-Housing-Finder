@@ -1,5 +1,5 @@
 <%= form_for(@listing, :html => {:multipart => true}) do |f| %>
-<!-- error message stuff went here -->
+<%= render 'shared/error_messages', :object => f.object %>
 <% action = params[:action] %>
 		<ul class="nav nav-tabs">
   			<li class="active">
@@ -85,7 +85,8 @@
           							<div class="controls">
           								<label class="select">
           									Landlord name:<br />
-          									goes here
+          									<%= f.collection_select :landlord_id, Landlord.all, :id, :name, :include_blank => true %>
+          									<p class="help-block" style="font-size: 14px"><%= link_to 'If you dont see your Landlord Listed, Click here', new_landlord_path%></p>
           								</label>
           							</div>
           					</div>

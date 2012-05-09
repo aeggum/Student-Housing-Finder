@@ -5,9 +5,14 @@ StudentHousingFinder::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  devise_for :users
+  devise_for :users do
+    resources :reviews, :only => [:destroy]
+  end
 
-  resources :listings
+  resources :landlords
+  resources :listings do
+    resources :reviews, :only => [:create, :destroy]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
